@@ -8,6 +8,7 @@ import SearchScreen from "./Screens/SearchScreen";
 
 export default function App() {
   const Stack = createStackNavigator();
+  console.log("adfsadfafedgvszedgv");
   return (
     <NavigationContainer>
       <Stack.Navigator
