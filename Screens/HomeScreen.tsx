@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "react-native-gesture-handler";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-//import { WheelPicker, Item } from "react-native-android-wheel-picker";
-const HomeScreen = (props) => {
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { MAIN_COLOR } from "../constants";
+
+type Props = any & {};
+
+const HomeScreen = (props: Props) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.logo}>
-        <Image source={require("./assets/LOGO.png")} />
+        <Image source={require("../assets/LOGO.png")} />
         <Text style={styles.mainText}>FoodZen</Text>
       </View>
       <View style={styles.bottomContainer}>
@@ -25,13 +20,23 @@ const HomeScreen = (props) => {
           >
             <Text style={styles.buttonText}>Search</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttons}>
+          <TouchableOpacity
+            style={styles.buttons}
+            onPress={() => {
+              props.navigation.navigate("Filter");
+            }}
+          >
             <Text style={styles.buttonText}>FilterAll</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttons}>
+          <TouchableOpacity
+            style={styles.buttons}
+            onPress={() => {
+              props.navigation.navigate("Favorites");
+            }}
+          >
             <Image
               style={styles.resizeIcon}
-              source={require("./assets/heart.png")}
+              source={require("../assets/heart.png")}
             />
             <Text style={styles.buttonText}>Favorites</Text>
           </TouchableOpacity>
@@ -74,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 0,
     margin: 18,
-    backgroundColor: "#F85F6A",
+    backgroundColor: MAIN_COLOR,
   },
   buttonText: {
     fontSize: 20,
